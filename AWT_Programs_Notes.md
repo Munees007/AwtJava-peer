@@ -1,8 +1,9 @@
 # AWT Programs (Scrollbar + Checkbox): Detailed Explanation, Concepts, and Controls
 
-This markdown explains two AWT programs:
+This markdown explains three AWT programs:
 - `ScrollBarExample.java` — demonstrates an AWT `Scrollbar` and `AdjustmentListener`.
 - `CheckBoxExample.java` — demonstrates AWT `Checkbox` controls and `ItemListener`.
+- `RadioButtonExample.java` — demonstrates AWT radio buttons using `CheckboxGroup` + `ItemListener`.
 
 It also includes the core concepts behind AWT controls, layouts, and event handling.
 
@@ -177,6 +178,20 @@ So:
 
 ---
 
+## Program 3: `RadioButtonExample.java` (Radio Buttons using CheckboxGroup)
+
+### What this program does
+It creates an AWT window titled “Favorite Foods (Radio)” with:
+- 3 radio buttons (Dosa, Parotta, Fried Rice) using a single `CheckboxGroup`
+- 3 labels (only the selected item’s label is shown)
+
+### Key concept: `CheckboxGroup`
+When multiple `Checkbox` controls share the same `CheckboxGroup`:
+- Only one can be selected at a time (radio-button behavior)
+- You can get the current selection with `group.getSelectedCheckbox()`
+
+---
+
 ## Controls Summary (Quick Reference)
 
 ### `Frame`
@@ -211,13 +226,14 @@ Main method:
 
 Compile:
 ```bash
-javac ScrollBarExample.java CheckBoxExample.java
+javac ScrollBarExample.java CheckBoxExample.java RadioButtonExample.java
 ```
 
 Run:
 ```bash
 java ScrollBarExample
 java CheckBoxExample
+java RadioButtonExample
 ```
 
 ---
@@ -231,4 +247,3 @@ java CheckBoxExample
 - Prefer `setVisible(true)` over deprecated `show()`.
 - Handling window closing is important for clean exit/cleanup (`dispose()` / `System.exit(0)` depending on need).
 - Prefer creating GUI on the AWT EDT (`EventQueue.invokeLater`).
-
